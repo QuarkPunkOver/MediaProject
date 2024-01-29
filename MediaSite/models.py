@@ -8,7 +8,6 @@ from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
 
-
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
     description = models.TextField("Описание", blank=True)

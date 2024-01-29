@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm, SetPasswordForm
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext, lazy
 from MediaSite.models import Reviews
 
 
