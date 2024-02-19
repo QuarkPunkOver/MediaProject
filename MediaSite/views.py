@@ -1,7 +1,7 @@
 import json
 
 from django.shortcuts import render
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.views import LoginView
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist
@@ -13,12 +13,24 @@ from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import BaseCreateView
 from django.views.generic.list import MultipleObjectMixin
-
+from django.views.generic import CreateView, FormView
 from MediaSite.forms import ReviewForm, UserRegisterForm, UserLoginForm
 from MediaSite.models import Movie, Genre, Actor, Rating, Reviews, LikeDislike
 
 def main(request):
     return render(request, "MediaSite/main.html")
+
+def login(request):
+    return render(request, "MediaSite/login.html")
+
+class RegisterView(FormView):
+    form_class = UserLoginForm
+    template_name = 'MediaSite/registration.html'
+    success_url = reverse_lazy("login")
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -57,7 +69,7 @@ class MoviesView(MoviesFilter, View):
 
         context = {'carousel_list': carousel_movies, 'premieres_list': premieres, 'cartoons_list': cartoons_list,
                    'new_movies_list': new_movies}
-        return render(request, 'MediaSite/index.html', context)
+        return render(request, 'MediaSite/main.html', context)
 
 
 class SingleMovieView(MoviesFilter, DetailView, BaseCreateView):
@@ -207,7 +219,7 @@ class FilterMoviesView(MoviesFilter, ListView):
 
 class UserRegisterView(CreateView):
     form_class = UserRegisterForm
-    template_name = 'MediaSite/register.html'
+    template_name = 'MediaSite/registration.html'
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
