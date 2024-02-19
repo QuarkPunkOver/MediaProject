@@ -1,8 +1,45 @@
 {% extends "MediaSite/index.html" %}
 {% block content %}
-<div class="container-fluid">
-    <a href="#" class="button">Cartoons</a>
-    <a href="#" class="button">Films</a>
-    <a href="#" class="button">Serials</a>
-</div>    
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .media{
+        color:#fff;
+        height:100vh;
+        display:flex;
+        align-items:center;
+    }
+    .col-sm-12 h5{
+        margin-top:10px;
+    }
+    .col-sm-12 h5:hover{
+        text-decoration:underline;
+        cursor:pointer;
+    }
+</style>
+
+<section class="media" id="media">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center color-white mb-5">Select category</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <h5 class="text-center">Films</h5>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <h5 class="text-center">Serials</h5>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <h5 class="text-center">Cartoons</h5>
+            </div>
+        </div>
+    </div>
+</section>
+    
 {% endblock content %}

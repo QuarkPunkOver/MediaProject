@@ -12,19 +12,28 @@
 </head>
 
 <style>
+    @import url("https://fonts.googleapis.com/css2?family=Google:wght@300;400;500;600;700;800;900&display=swap");
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .navbar .logo{
+        font-size:20px;
+    }
     .footer{
         padding:20px;
         margin-top:auto;
         width: 100%;
     }
     .footer a{
-        font-size: 10px;
-    }
-    .footer a:hover{
-        text-decoration:underline;
+        font-size: 13px;
     }
     .footer h4{
-        font-size: 15px;
+        font-size: 18px;
+    }
+    .footer i{
+        font-size:25px;
     }
 </style>
 
@@ -34,8 +43,7 @@
         <div class="navbar">
             <div class="logo"><a>MediaSite</a></div>
             <ul class="links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Terms os use</a></li>
+                <li><a href="#">Profile</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="#">Sign out</a></li>
                 {% else %}
@@ -46,8 +54,7 @@
                 <i class='fa-solid fa-bars' style="color:#fff;"></i>
             </div>
             <div class="dropdown_menu">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Terms os use</a></li>
+                <li><a href="#">Profile</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="#">Sign out</a></li>
                 {% else %}
@@ -66,8 +73,8 @@
             <div class="col-md-3 col-6" style="color:white;">
                 <h4 class="lang" key="info">Information</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">Terms of use</a></li>
-                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">About us</a></li>
                         <li><a href="#">Terms of use</a></li>
                 </ul>
             </div>
@@ -82,9 +89,9 @@
             <div class="col-md-3 col-6" style="color:white;">
                 <h4 class="lang" key="info">Our social networks</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-telegram' ></i></a>
+                        <a href="#"><i class='bx bxl-twitter' ></i></a>
                 </ul>
             </div>
     </footer>
