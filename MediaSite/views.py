@@ -1,5 +1,6 @@
 import json
 
+from django.shortcuts import render
 from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView
 from django.contrib.contenttypes.models import ContentType
@@ -15,6 +16,9 @@ from django.views.generic.list import MultipleObjectMixin
 
 from MediaSite.forms import ReviewForm, UserRegisterForm, UserLoginForm
 from MediaSite.models import Movie, Genre, Actor, Rating, Reviews, LikeDislike
+
+def main(request):
+    return render(request, "MediaSite/main.html")
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -39,7 +43,7 @@ class MoviesFilter:
 
 class MoviesView(MoviesFilter, View):
     model = Movie
-    template_name = 'MediaSite/index.html'
+    template_name = 'MediaSite/MoviesView'
 
     def get(self, request):
         carousel_movies = Movie.objects.order_by('kinopoisk_rating')[:12].prefetch_related('genres')

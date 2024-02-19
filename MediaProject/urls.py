@@ -21,10 +21,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler404
 from django.contrib.auth import views as auth_views
+from MediaSite import views
 
 from MediaSite.forms import ResetPasswordForm, SetNewPasswordForm
 
 urlpatterns = [
+    path('', views.main),
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('restapi/', include('RestAPI.urls')),

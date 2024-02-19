@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaSite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../static/css/style.css">
+</head>
+
+<style>
+    .footer{
+        padding:20px;
+        margin-top:auto;
+        width: 100%;
+    }
+    .footer a{
+        font-size: 10px;
+    }
+    .footer a:hover{
+        text-decoration:underline;
+    }
+    .footer h4{
+        font-size: 15px;
+    }
+</style>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo"><a>MediaSite</a></div>
+            <ul class="links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Terms os use</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="#">Sign out</a></li>
+                {% else %}
+                <li><a href="#">Sign in</a></li>
+                {% endif %}
+            </ul>
+            <div class="toggle_btn">
+                <i class='fa-solid fa-bars' style="color:#fff;"></i>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Terms os use</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="#">Sign out</a></li>
+                {% else %}
+                <li><a href="#">Sign in</a></li>
+                {% endif %}
+           </div> 
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+    
+
+    <footer class="footer">
+        <div class="row">
+            <div class="col-md-3 col-6" style="color:white;">
+                <h4 class="lang" key="info">Information</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Terms of use</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6" style="color:white;">
+                <h4 class="lang" key="info">Working hours</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Monday-Sunday</a></li>
+                        <li><a href="#">24 ours a day</a></li>
+                        <li><a href="#">Without a break</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6" style="color:white;">
+                <h4 class="lang" key="info">Our social networks</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                </ul>
+            </div>
+    </footer>
+
+</body>
+<script src="../../../static/js/nav.js"></script>
+</html>

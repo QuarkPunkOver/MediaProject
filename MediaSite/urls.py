@@ -1,10 +1,11 @@
 from django.urls import path
 from django.views.decorators.cache import cache_page
+from MediaSite import views
 
 from .views import *
 
 urlpatterns = [
-    path('', cache_page(60 * 10)(MoviesView.as_view()), name='home'),
+    path('home/', cache_page(60 * 10)(MoviesView.as_view()), name='home'),
     path('catalog/<int:page>/', cache_page(60 * 10)(CatalogView.as_view()), name='catalog'),
     path('filter/', cache_page(60 * 10)(FilterMoviesView.as_view()), name='filter'),
     path('search/', cache_page(60 * 10)(Search.as_view()), name='search'),
